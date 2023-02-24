@@ -4,6 +4,14 @@ export interface CreateProductDto extends Omit<Product, 'id' | 'createdAt' | 'up
   categoryId: string,
 }
 
+// type example = Pick<Product, 'updatedAt'>
+
 export interface UpdateProductDto extends Partial<CreateProductDto>{}
 
-export interface FindProductDto extends Readonly<Partial<Product>>{}
+// type example2 = Required<Product>
+
+export interface FindProductDto extends Readonly<Partial<Omit<Product, 'tags'>>>{
+  readonly tags: ReadonlyArray<string>
+}
+
+// type example3 = Readonly<Product>

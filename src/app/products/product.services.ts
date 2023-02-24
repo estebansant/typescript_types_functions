@@ -21,7 +21,7 @@ export const addProduct = (data: CreateProductDto): Product => {
   return newProduct;
 };
 
-export const updateProduct = (id: string|number, changes: UpdateProductDto): Product => {
+export const updateProduct = (id: Product['id'], changes: UpdateProductDto): Product => {
   const index = products.findIndex(item => item.id === id);
   const prevData = products[index];
   products[index] = {
@@ -32,7 +32,9 @@ export const updateProduct = (id: string|number, changes: UpdateProductDto): Pro
 };
 
 export const findProducts = (dto: FindProductDto): Product[] => {
-  // code to fiend a product in a database
+  // code to find a product in a database
+  // dto.tags?.pop();
+  // dto.tags?.push();
   return products;
 }
 
